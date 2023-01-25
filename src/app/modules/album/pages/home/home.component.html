@@ -1,0 +1,12 @@
+<div class="container margin mt-5">
+    <div class="row">
+        <a routerLink="/albums/{{album.id}}" class="img-fluid col-xs-12 col-sm-12 col-md-4 p-4" *ngFor="let album of albumbs">
+            <div class="card equal-height" [title]="album.title">
+                <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+                    <img class="img-fluid" [src]="album.image" alt="{{album.title}}">
+                </div>
+                <div class="card-footer text-muted">{{album.title}}</div>
+            </div>
+        </a>
+    </div>
+</div>

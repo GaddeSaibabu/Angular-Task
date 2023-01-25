@@ -1,0 +1,16 @@
+<div class="container margin">
+    <div *ngIf="photos.length > 0" class="row">
+        <div class="img-fluid col-xs-12 col-sm-12 col-md-4 p-4" *ngFor="let photo of photos">
+            <div class="card equal-height" [title]="photo.title">
+                <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+                    <img class="img-fluid"
+                        src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg"
+                        alt="{{photo.title}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="pageNumber === MAX_PAGES" class="text-center m-3 card">
+        <h4>That's all folks!</h4>
+    </div>
+</div>

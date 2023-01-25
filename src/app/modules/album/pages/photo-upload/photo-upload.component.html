@@ -1,0 +1,31 @@
+<div class="container margin mt-5">
+    <div *ngIf="showMessage" class="alert alert-success" role="alert" data-mdb-color="success">
+        <i class="fas fa-check-circle me-3"></i>Uploaded successfully!
+        <button type="button" class="btn-close float-end" data-mdb-dismiss="alert" aria-label="Close"
+            (click)="showMessage=false"></button>
+    </div>
+    <div class="row">
+        <div class="img-fluid col-md-12 p-4 card mb-3">
+            <div class="float-end">
+                <input id="previewSelector" type="file" multiple hidden (change)="onSelect($event)"
+                    accept=".jpeg,.jpg,.png">
+                <button onclick="document.getElementById('previewSelector').click()"
+                    class="btn btn-sm btn-secondary float-end">Select
+                    Images</button>
+            </div>
+        </div>
+        <div *ngFor="let url of selectedImagesPreview; index as i" class="thumbnail preview-image col-md-3 card p-2">
+            <img [src]="url" />
+            <a class="btn btn-xs btn-warn remImage" (click)="onRemoveSelectedThumb(i)">
+                <i class="fa-solid fa-trash-can"></i>
+            </a>
+        </div>
+        <div *ngIf="selectedImagesPreview.length === 0" class="text-center  mt-5">
+            Select images to see preview..
+        </div>
+        <hr *ngIf="selectedImagesPreview.length > 0">
+        <div class="col-md-12 text-center" *ngIf="selectedImagesPreview.length > 0">
+            <button class="btn btn-lg btn-success" (click)="onUploadClick()">Upload now</button>
+        </div>
+    </div>
+</div>

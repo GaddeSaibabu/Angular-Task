@@ -1,0 +1,22 @@
+<div class="container margin mt-5">
+    <div class="row">
+        <div class="img-fluid col-xs-12 col-sm-12 col-md-6 p-4">
+            <div class="card" [title]="albumPhoto.title">
+                <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+                    <img class="img-fluid" [src]="albumPhoto.image" alt="{{albumPhoto.title}}">
+                </div>
+                <div class="card-footer" style="width: 100%;">
+                    <div class="float-end">
+                        <i class="fas fa-thumbs-up"></i>&nbsp;{{albumPhoto.likes}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 p-5">
+            <div class="note note-light mb-3" *ngFor="let comment of albumPhoto.comments">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{{comment.text}}
+                <h5 class="float-end text-bold">--&nbsp;{{comment.by}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

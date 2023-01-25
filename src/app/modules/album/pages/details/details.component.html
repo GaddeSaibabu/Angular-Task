@@ -1,0 +1,24 @@
+<div class="container margin mt-5">
+    <div class="row">
+        <div class="col">
+            <button routerLink="/albums/photo-upload" class="btn btn-success float-end">Upload now!</button>
+        </div>
+    </div>
+    <div class="row">
+        <a routerLink="/albums/{{id}}/photos/{{ap.id}}" class="img-fluid col-xs-12 col-sm-12 col-md-3 p-4" *ngFor="let ap of albumPhotos">
+            <div class="card equal-height" [title]="ap.title">
+                <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+                    <img class="img-fluid" [src]="ap.image" alt="{{ap.title}}">
+                </div>
+                <div class="card-footer" style="width: 100%;">
+                    <div class="float-end">
+                        <i class="fas fa-thumbs-up"></i>&nbsp;{{ap.likes}}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div *ngIf="albumPhotos.length === 0" class="text-center  mt-5">
+        Hey, its empty here... Upload some photos..
+    </div>
+</div>
